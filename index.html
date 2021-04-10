@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Homework: Flipping Cards Dominello 2021</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="flashcards-app">
+  <div>
+    <input type="text" v-model="Question" placeholder="Enter Question Here" />
+    
+    <input type="text" v-model="Answer" placeholder="Enter Answer Here" />
+    <br>
+    
+    <input type="radio" id="one" value="history" v-model="Category">
+    <l for="one">History</l>
+    <br>
+    
+    <input type="radio" id="two" value="math" v-model="Category">
+    <l for="two">Math</l>
+    <br>
+    
+    <input type="radio" id="three" value="science" v-model="Category">
+    <l for="three">Science</l>
+    
+    <br>
+
+  <button v-on:click="newCard">Submit</button>
+   
+  </div>
+
+  <div class="card" v-for="card in cards" v-on:click="card.flipped=!card.flipped">
+    
+    <div class="top" v-bind:class="card.category">
+    </div>
+    
+    <div class="side1" v-bind:class={hide:card.flipped}>
+      <h1>{{card.question}}</h1>
+    </div>
+    
+    <div class="side2" v-bind:class={hide:!card.flipped}>
+      <h1>{{card.answer}}</h1>
+    </div>
+  </div>
+
+</div>
+
+<!--     In your template, remove the 'hide' class from the side1 and side2 elements. 'hide' class should be conditionally rendered through the 'flipped' value in the card -->
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
